@@ -1,1 +1,3 @@
 <?php
+const POSTS_DATA_FILE = '..'.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'posts.json';
+const USERS_DATA_FILE = '..'.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'user.json';
