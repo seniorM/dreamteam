@@ -1,8 +1,8 @@
 <?php
+include_once 'beer'.DIRECTORY_SEPARATOR.'index.php';
+include_once 'english'.DIRECTORY_SEPARATOR.'index.php';
+include_once 'georgia'.DIRECTORY_SEPARATOR.'index.php';
+include_once 'later'.DIRECTORY_SEPARATOR.'index.php';
+include_once 'cold'.DIRECTORY_SEPARATOR.'index.php';
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
