@@ -1,8 +1,33 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+function existUser() {
+    global $errors;
+    $login = $_POST['login'];
+    $pass = $_POST['pass'];
+    if (!$login && !$pass) {
+        $errors[] = 'empty data';
+    } else {
+        $users = getUsers();
+        if ($users) {
+            foreach ($users as $user) {
+                if ($login === $user['login'] || $pass === $user['pass'])
+                    return $login;
+            }
+        }
+        return false;
+    }
+}
 
+function getUsers() {
+    if (!file_exists(USERS_DATA_FILE)) {
+        return false;
+    } else {
+        $content = file_get_contents(USERS_DATA_FILE);
+        if (!$content) {
+            return false;
+        } else {
+            $users = json_decode($content, true);
+            return $users;
+        }
+    }
+}
