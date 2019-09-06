@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * отображает форму регистрации
+ */
 function get_registration() {
     show('registration.php');
 }
@@ -11,7 +14,7 @@ function post_registration() {
 
     if (check_login($user)) {
 	$errors[] = 'user already exists';
-	var_dump($errors);
+	set_errors($errors);
     } else {
 	add_user($user);
 	header('Location:login.php');
@@ -36,7 +39,7 @@ function get_request_user() {
 	$errors[] = 'password must have more than 5 symbols';
     }
     if (count($errors) != 0) {
-	return false;
+	set_errors($errors);
     }
     $user = array(
 	'login' => $login,
@@ -85,5 +88,6 @@ function add_user($user) {
 
 
 function set_errors($errors){
-    
+    session_start();
+    $_SESSION = $errors;
 }

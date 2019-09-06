@@ -1,3 +1,7 @@
+<?php
+// отображение ошибок из сессии
+set_errors($errors);А
+?>
 <form action="index.php?action=registration" method="post" id="reg">
     <label>Login:
 	<input type="text" name="login"/>
