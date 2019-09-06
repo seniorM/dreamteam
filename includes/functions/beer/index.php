@@ -2,38 +2,27 @@
 
 function rotuer()
 {
-    $get = $_GET['action'];
-    $post = $_POST['action'];
-    if ($get == 'login') {
-        get_login();
-    } else if ($post == 'login') {
-        post_login();
-    } else if ($get == 'registration') {
-        get_registration();
-    } else if ($post == 'registration') {
-        post_registration();
-    } else if ($get == 'index') {
-        get_index();
-    } else if ($get == 'all') {
-        get_all();
-    } else if ($post == 'add') {
-        post_add();
-    } else if ($post == 'delete') {
-        post_delete();
-    }
+    $ation = $_GET['action'];
+    $method = $_SERVER['REQUEST_METHOD'];
+    if(function_exists($method._.$ation)){
+        exit('404');
+    };
+    echo $method._.$ation.'()';
+
 }
 
 function post_add()
 {
-    $session_login = is_auth();
-    if ($session_login) {
-        $heading = $_POST['heading'];
-        $text = $_POST['text'];
-        add_post($heading, $text);
-        header('Location:index.php?action=all');
-    } else {
-        header('Location:index.php?action=all');
-    }
+    //$session_login = is_auth();
+    //if ($session_login) {
+    $heading = $_POST['heading'];
+    $text = $_POST['text'];
+    add_post($heading, $text);
+    header('Location:index.php?action=all');
+    //} else {
+    header('Location:index.php?action=all');
+    //}
+    show('views/pages/all.php');
 }
 
 function post_delete()
@@ -74,25 +63,34 @@ function get_posts($login = false)
     }
 }
 
-function save_posts($posts){
+function save_posts($posts)
+{
     $content = json_encode($posts);
     $res = file_put_contents(POSTS_DATA_FILE, $content);
     return (bool)$res;
 }
 
-function add_post($heading, $text){
+function add_post($heading, $text)
+{
     $posts = get_posts();
     $user = get_auth_user();
-    $posts[] = array (
-        'heading'=>$heading,
-        'text'=>$text,
-        'login'=>$user,
+    $posts[] = array(
+        'heading' => $heading,
+        'text' => $text,
+        'login' => $user,
     );
     save_posts($posts);
 }
 
-function delete_post($id){
+function delete_post($id)
+{
     $posts = get_posts();
     unset($posts[$id]);
     save_posts($posts);
+}
+
+function show($pages, $templates = DEFAULT_TEMPLATE)
+{
+
+
 }
