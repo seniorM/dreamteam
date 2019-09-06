@@ -9,15 +9,14 @@ function get_registration() {
 
 function post_registration() {
     $errors = array();
-
     $user = get_request_user();
-
-    if (check_login($user)) {
+    if (check_login($user['login'])) {
 	$errors[] = 'user already exists';
 	set_errors($errors);
+	header('Location:'. url('registration'));
     } else {
 	add_user($user);
-	header('Location:login.php');
+	header('Location:'. url('login'));
     }
 }
 
@@ -40,6 +39,7 @@ function get_request_user() {
     }
     if (count($errors) != 0) {
 	set_errors($errors);
+	header('Location:'. url('registration'));
     }
     $user = array(
 	'login' => $login,
@@ -50,7 +50,7 @@ function get_request_user() {
 
 function check_login($login) {
     $users = get_users();
-    if ($users) {
+    if (!empty($users)) {
 	foreach ($users as $user) {
 	    if ($login === $user['login']) {
 		return true;
@@ -76,6 +76,9 @@ function get_users() {
 
 function save_users($users) {
     $content = json_encode($users);
+    if(!file_exists('data')){
+	mkdir('data');
+    }
     $res = file_put_contents(USERS_DATA_FILE, $content);
     return (bool) $res;
 }
@@ -87,7 +90,12 @@ function add_user($user) {
 }
 
 
-function set_errors($errors){
-    session_start();
-    $_SESSION = $errors;
+function set_errors($errors){   
+    $_SESSION['errors'] = $errors;
+}
+
+function get_errors(){
+    $errors = $_SESSION['errors'];
+    unset($_SESSION['errors']);
+    return $errors;
 }
