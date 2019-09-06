@@ -2,8 +2,8 @@
 
 function router()
 {
-    $action='index';
-    if(isset($_GET['action'])) {
+    $action = 'index';
+    if (isset($_GET['action'])) {
         $action = $_GET['action'];
     }
     $method = $_SERVER['REQUEST_METHOD'];
@@ -27,19 +27,19 @@ function post_add()
     //} else {
     header('Location:index.php?action=all');
     //}
-    show('views/pages/all.php');
+    show("all.php");
 }
 
 function post_delete()
 {
-    $session_login = is_auth();
-    if ($session_login) {
+    //$session_login = is_auth();
+    //if ($session_login) {
         $id = $_POST['id'];
         delete_post($id);
-        header('Location:index.php?action=all');
-    } else {
-        header('Location:index.php?action=all');
-    }
+    //} else {
+        //header('Location:index.php?action=all');
+    //}
+    show("all.php");
 }
 
 function get_posts($login = false)
@@ -78,11 +78,11 @@ function save_posts($posts)
 function add_post($heading, $text)
 {
     $posts = get_posts();
-    $user = get_auth_user();
+    //$user = get_auth_user();
     $posts[] = array(
         'heading' => $heading,
         'text' => $text,
-        'login' => $user,
+        'login' => '$user',
     );
     save_posts($posts);
 }
@@ -96,9 +96,17 @@ function delete_post($id)
 
 function show($page, $template = DEFAULT_TEMPLATE)
 {
-    include_once 'includes'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$template;
+    include_once 'includes' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . $template;
 
 }
-function get_root_folder(){
+
+function get_root_folder()
+{
     return $_SERVER['DOCUMENT_ROOT'];
+}
+
+function get_all()
+{
+
+    show("all.php");
 }
