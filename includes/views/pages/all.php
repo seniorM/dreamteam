@@ -5,9 +5,7 @@
         <label>Text<textarea name="text"></textarea></label>
         <input type="submit" value="add post">
     </form>
-    <?php
-    $posts = get_posts();
-    foreach ($posts as $id => $post): ?>
+    <?php foreach (get_posts() as $id => $post): ?>
     <div class="<?= $post['login'];?>">
         <h2><?= $post['heading'];?></h2>
         <?= $post['text'];?>

@@ -15,7 +15,7 @@ function post_login() {
         if ($users) {
             foreach ($users as $user) {
                 if ($login === $user['login'] || $pass === $user['pass'])
-                    $_SESSION['login'] = $login;;
+                    $_SESSION['login'] = $login;
             }
         }
         return false;

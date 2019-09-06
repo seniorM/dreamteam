@@ -32,13 +32,13 @@ function post_add()
 
 function post_delete()
 {
-    //$session_login = is_auth();
-    //if ($session_login) {
+    $session_login = is_auth();
+    if ($session_login) {
         $id = $_POST['id'];
         delete_post($id);
-    //} else {
-        //header('Location:index.php?action=all');
-    //}
+    } else{
+        $error = "not auth";
+    }
     show("all.php");
 }
 
@@ -109,4 +109,13 @@ function get_all()
 {
 
     show("all.php");
+}
+
+function is_auth(){
+    if(empty($_SESSION['name'])){
+        $bool=false;
+    }else{
+        $bool=true;
+    }
+    return $bool;
 }
