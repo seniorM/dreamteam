@@ -1,7 +1,21 @@
 <?php
 
 function get_registration() {
-    include_once 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'registration.php';
+    show('registration.php');
+}
+
+function post_registration() {
+    $errors = array();
+
+    $user = get_request_user();
+
+    if (check_login($user)) {
+	$errors[] = 'user already exists';
+	var_dump($errors);
+    } else {
+	add_user($user);
+	header('Location:login.php');
+    }
 }
 
 function get_request_user() {
@@ -69,16 +83,7 @@ function add_user($user) {
     save_users($users);
 }
 
-function post_registration() {
-    $errors = array();
 
-    $user = get_request_user();
-
-    if (check_login($user)) {
-	$errors[] = 'user already exists';
-	var_dump($errors);
-    } else {
-	add_user($user);
-	header('Location:login.php');
-    }
+function set_errors($errors){
+    
 }
