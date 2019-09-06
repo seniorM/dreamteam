@@ -1,8 +1,7 @@
 <?php
 
 function get_registration() {
-    include_once 'views' . DIRECTORY_SEPARATOR .'pages'.DIRECTORY_SEPARATOR.'registration.php';
-    
+    include_once 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'registration.php';
 }
 
 function get_request_user() {
@@ -11,61 +10,50 @@ function get_request_user() {
     $pass = $_POST['pass'];
     $pass_conf = $_POST['pass_conf'];
     if (!$login && !$pass && !$pass_conf) {
-        $errors[] = 'empty data';
+	$errors[] = 'empty data';
     }
     if (strlen($login) < 6) {
-        $errors[] = 'login must have more than 5 symbols';
+	$errors[] = 'login must have more than 5 symbols';
     }
     if ($pass !== $pass_conf) {
-        $errors[] = 'passwords do not match';
+	$errors[] = 'passwords do not match';
     }
     if (strlen($pass) < 6) {
-        $errors[] = 'password must have more than 5 symbols';
+	$errors[] = 'password must have more than 5 symbols';
     }
     if (count($errors) != 0) {
-        return false;
+	return false;
     }
     $user = array(
-        'login' => $login,
-        'pass' => password_hash($pass, PASSWORD_DEFAULT),
+	'login' => $login,
+	'pass' => password_hash($pass, PASSWORD_DEFAULT),
     );
     return $user;
 }
 
-//function user_exists($needed_user) {
-//    $users = getUsers();
-//    if ($users) {
-//        foreach ($users as $user) {
-//            if ($needed_user['login'] === $user['login']) {
-//                return true;
-//            }
-//        }
-//    }
-//    return false;
-//}
-
 function check_login($login) {
     $users = get_users();
     if ($users) {
-        foreach ($users as $user) {
-            if ($login === $user['login']) {
-                return true;
-            }
-        }
+	foreach ($users as $user) {
+	    if ($login === $user['login']) {
+		return true;
+	    }
+	}
     }
     return false;
 }
+
 function get_users() {
     if (!file_exists(USERS_DATA_FILE)) {
-        return false;
+	return false;
     } else {
-        $content = file_get_contents(USERS_DATA_FILE);
-        if (!$content) {
-            return false;
-        } else {
-            $users = json_decode($content, true);
-            return $users;
-        }
+	$content = file_get_contents(USERS_DATA_FILE);
+	if (!$content) {
+	    return $users = [];
+	} else {
+	    $users = json_decode($content, true);
+	    return $users;
+	}
     }
 }
 
@@ -83,14 +71,14 @@ function add_user($user) {
 
 function post_registration() {
     $errors = array();
-    
+
     $user = get_request_user();
 
     if (check_login($user)) {
-        $errors[] = 'user already exists';
-        var_dump($errors);
+	$errors[] = 'user already exists';
+	var_dump($errors);
     } else {
-        add_user($user);
-        header('Location:login.php');
+	add_user($user);
+	header('Location:login.php');
     }
 }
