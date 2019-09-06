@@ -32,18 +32,29 @@ function get_request_user() {
     return $user;
 }
 
-function user_exists($needed_user) {
-    $users = getUsers();
+//function user_exists($needed_user) {
+//    $users = getUsers();
+//    if ($users) {
+//        foreach ($users as $user) {
+//            if ($needed_user['login'] === $user['login']) {
+//                return true;
+//            }
+//        }
+//    }
+//    return false;
+//}
+
+function check_login($login) {
+    $users = get_users();
     if ($users) {
         foreach ($users as $user) {
-            if ($needed_user['login'] === $user['login']) {
+            if ($login === $user['login']) {
                 return true;
             }
         }
     }
     return false;
 }
-
 function get_users() {
     if (!file_exists(USERS_DATA_FILE)) {
         return false;
@@ -65,9 +76,9 @@ function save_users($users) {
 }
 
 function add_user($user) {
-    $users = getUsers();
+    $users = get_users();
     $users[] = $user;
-    saveUsers($users);
+    save_users($users);
 }
 
 function post_registration() {
@@ -75,7 +86,7 @@ function post_registration() {
     
     $user = get_request_user();
 
-    if (user_exists($user)) {
+    if (check_login($user)) {
         $errors[] = 'user already exists';
         var_dump($errors);
     } else {
