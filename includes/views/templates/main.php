@@ -5,7 +5,7 @@
 	<meta name="description" content="description"/>
 	<meta name="author" content="author"/> 
 	<link rel="stylesheet" type="text/css" href="default.css" media="screen"/>
-	<link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+	<link href="css/default.css" rel="stylesheet" type="text/css"/>
 	<title>Dream team blog</title>
     </head>
     <body>
