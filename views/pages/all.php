@@ -1,8 +1,3 @@
-<?php
-$posts = get_posts();
-
-?>
-
 <div id="all">
     <form action="index.php?action=add" method="post" name="add">
         <label>Heading: <input type="text" name="heading"></label>
