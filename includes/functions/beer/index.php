@@ -4,11 +4,13 @@ function rotuer()
 {
     $ation = $_GET['action'];
     $method = $_SERVER['REQUEST_METHOD'];
-    if(function_exists($method._.$ation)){
-        exit('404');
-    };
-    echo $method._.$ation.'()';
+    $action_func = $method . _ . $ation;
 
+    if (function_exists($action_func)) {
+        $action_func();
+    } else {
+        exit('404');//
+    }
 }
 
 function post_add()
@@ -89,8 +91,8 @@ function delete_post($id)
     save_posts($posts);
 }
 
-function show($pages, $templates = DEFAULT_TEMPLATE)
+function show($page, $template = DEFAULT_TEMPLATE)
 {
-
+    include_once 'includes'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'tempates'.DIRECTORY_SEPARATOR.$template;
 
 }
