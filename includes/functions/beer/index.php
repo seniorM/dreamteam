@@ -96,7 +96,7 @@ function delete_post($id)
 
 function show($page, $template = DEFAULT_TEMPLATE)
 {
-    include_once get_root_folder().DIRECTORY_SEPARATOR.'includes'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$template;
+    include_once 'includes'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$template;
 
 }
 function get_root_folder(){

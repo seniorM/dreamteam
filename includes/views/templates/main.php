@@ -36,7 +36,7 @@
 
 		</div>
 		<div class="clearer">
-		    <?php include_once get_root_folder() . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . $page; ?>
+		    <?php include_once 'includes' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . $page; ?>
 		</div>
 	    </div>
 	    <div class="footer">
