@@ -1,5 +1,9 @@
 <?php
 
+function get_login(){
+    show('login.php');
+}
+
 function existUser() {
     global $errors;
     $login = $_POST['login'];
