@@ -1,10 +1,13 @@
 <?php
 
-function rotuer()
+function router()
 {
-    $ation = $_GET['action'];
+    $action='index';
+    if(isset($_GET['action'])) {
+        $action = $_GET['action'];
+    }
     $method = $_SERVER['REQUEST_METHOD'];
-    $action_func = $method . _ . $ation;
+    $action_func = $method . '_' . $action;
 
     if (function_exists($action_func)) {
         $action_func();
@@ -93,6 +96,9 @@ function delete_post($id)
 
 function show($page, $template = DEFAULT_TEMPLATE)
 {
-    include_once 'includes'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$template;
+    include_once get_root_folder().DIRECTORY_SEPARATOR.'includes'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$template;
 
+}
+function get_root_folder(){
+    return $_SERVER['DOCUMENT_ROOT'];
 }
