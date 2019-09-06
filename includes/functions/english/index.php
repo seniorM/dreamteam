@@ -5,7 +5,7 @@ function get_registration() {
     
 }
 
-function getRequestUser() {
+function get_request_user() {
     global $errors;
     $login = $_POST['login'];
     $pass = $_POST['pass'];
@@ -32,7 +32,7 @@ function getRequestUser() {
     return $user;
 }
 
-function userExists($needed_user) {
+function user_exists($needed_user) {
     $users = getUsers();
     if ($users) {
         foreach ($users as $user) {
@@ -44,7 +44,7 @@ function userExists($needed_user) {
     return false;
 }
 
-function getUsers() {
+function get_users() {
     if (!file_exists(USERS_DATA_FILE)) {
         return false;
     } else {
@@ -58,13 +58,13 @@ function getUsers() {
     }
 }
 
-function saveUsers($users) {
+function save_users($users) {
     $content = json_encode($users);
     $res = file_put_contents(USERS_DATA_FILE, $content);
     return (bool) $res;
 }
 
-function addUser($user) {
+function add_user($user) {
     $users = getUsers();
     $users[] = $user;
     saveUsers($users);
@@ -73,13 +73,13 @@ function addUser($user) {
 function post_registration() {
     $errors = array();
     
-    $user = getRequestUser();
+    $user = get_request_user();
 
-    if (userExists($user)) {
+    if (user_exists($user)) {
         $errors[] = 'user already exists';
         var_dump($errors);
     } else {
-        addUser($user);
+        add_user($user);
         header('Location:login.php');
     }
 }
