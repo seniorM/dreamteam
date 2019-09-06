@@ -4,7 +4,7 @@ function get_login(){
     show('login.php');
 }
 
-function existUser() {
+function post_login() {
     global $errors;
     $login = $_POST['login'];
     $pass = $_POST['pass'];
@@ -15,7 +15,7 @@ function existUser() {
         if ($users) {
             foreach ($users as $user) {
                 if ($login === $user['login'] || $pass === $user['pass'])
-                    return $login;
+                    $_SESSION['login'] = $login;;
             }
         }
         return false;
