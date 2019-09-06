@@ -1,7 +1,8 @@
 <?php
 
 function get_registration() {
-    include_once 'views' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'main.php';
+    include_once 'views' . DIRECTORY_SEPARATOR .'pages'.DIRECTORY_SEPARATOR.'registration.php';
+    
 }
 
 function getRequestUser() {
