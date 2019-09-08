@@ -25,3 +25,13 @@ function post_login() {
         }
     }
 }
+
+function get_auth_user(){
+    $user_session = $_SESSION['login'];
+    if(empty($user_session)){
+        $errors[]='Пользователь отсутствует';
+    }else{
+        $user_login="Привет ".$user_session."!";
+        return $user_login;
+    }
+}
