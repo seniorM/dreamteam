@@ -9,7 +9,7 @@ function post_login() {
     $login = $_POST['login'];
     $pass = $_POST['pass'];
     if (!$login && !$pass) {
-        $errors[] = 'Отсутствуют данные';
+        $errors[] = 'No data';
     } else {
         $users = get_users();
         if ($users) {
@@ -18,7 +18,7 @@ function post_login() {
                     $_SESSION['login'] = $login;
                     header('Location:index.php');
                 } else {
-                    $errors[] = 'Такой пользователь не зарегистрирован или неверно введены данные';
+                    $errors[] = 'User is not registered or data is entered incorrectly';
                     header('Location:login.php');
                 }
             }
@@ -27,11 +27,10 @@ function post_login() {
 }
 
 function get_auth_user() {
-    $user_session = $_SESSION['login'];
+    $user_login = $_SESSION['login'];
     if (empty($user_session)) {
-        $errors[] = 'Пользователь отсутствует';
+        $errors[] = 'No user';
     } else {
-        $user_login = "Привет " . $user_session . "!";
         return $user_login;
     }
 }
