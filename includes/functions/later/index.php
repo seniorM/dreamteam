@@ -9,29 +9,29 @@ function post_login() {
     $login = $_POST['login'];
     $pass = $_POST['pass'];
     if (!$login && !$pass) {
-        $errors[] = 'empty data';
+        $errors[] = '����������� ������';
     } else {
-        $users = getUsers();
+        $users = get_users();
         if ($users) {
             foreach ($users as $user) {
-                if ($login === $user['login'] || $pass === $user['pass'])
-                    $_SESSION['login'] = $login;
+                if ($login === $user['login'] || $pass === $user['pass']){
+                    $_SESSION['login'] = $login;;
+                    header('Location:index.php');
+                }else {
+                    $errors[]='����� ������������ �� ��������������� ��� ������� ������� ������';
+                    header('Location:login.php');
+                }
             }
         }
-        return false;
     }
 }
 
-function getUsers() {
-    if (!file_exists(USERS_DATA_FILE)) {
-        return false;
-    } else {
-        $content = file_get_contents(USERS_DATA_FILE);
-        if (!$content) {
-            return false;
-        } else {
-            $users = json_decode($content, true);
-            return $users;
-        }
+function get_auth_user(){
+    $user_session = $_SESSION['login'];
+    if(empty($user_session)){
+        $errors[]='������������ �����������';
+    }else{
+        $user_login="������ ".$user_session."!";
+        return $user_login;
     }
 }

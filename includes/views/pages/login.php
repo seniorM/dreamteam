@@ -7,3 +7,4 @@
     </label>	    
     <input type="submit" value="Войти"/>
 </form>
+<a href="/registration.php">Регистрация</a>
