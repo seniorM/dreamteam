@@ -28,7 +28,7 @@ function post_login() {
 
 function get_auth_user() {
     $user_login = $_SESSION['login'];
-    if (empty($user_session)) {
+    if (empty($user_login)) {
         $errors[] = 'No user';
     } else {
         return $user_login;
