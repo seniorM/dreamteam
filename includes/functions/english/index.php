@@ -99,3 +99,31 @@ function get_errors(){
     unset($_SESSION['errors']);
     return $errors;
 }
+
+function get_index(){
+    $login = $_POST['login'];
+    if($login === $_SESSION['login']){
+        foreach ($array as $value) {
+            //all posts
+        }
+    }else{
+        header('Location:'. url('login'));
+    }
+}
+//function post_login() {
+//    global $errors;
+//    
+//    $pass = $_POST['pass'];
+//    if (!$login && !$pass) {
+//        $errors[] = 'empty data';
+//    } else {
+//        $users = getUsers();
+//        if ($users) {
+//            foreach ($users as $user) {
+//                if ($login === $user['login'] || $pass === $user['pass'])
+//                    $_SESSION['login'] = $login;;
+//            }
+//        }
+//        return false;
+//    }
+//}
