@@ -19,6 +19,7 @@ function post_login() {
                     header('Location:index.php');
                 }else {
                     $errors[]='“акой пользователь не зарегистрирован или неверно введены данные';
+                    header('Location:login.php');
                 }
             }
         }
