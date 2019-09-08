@@ -9,29 +9,18 @@ function post_login() {
     $login = $_POST['login'];
     $pass = $_POST['pass'];
     if (!$login && !$pass) {
-        $errors[] = 'empty data';
+        $errors[] = 'Отсутствуют данные';
     } else {
         $users = getUsers();
         if ($users) {
             foreach ($users as $user) {
-                if ($login === $user['login'] || $pass === $user['pass'])
+                if ($login === $user['login'] || $pass === $user['pass']){
                     $_SESSION['login'] = $login;;
+                    header('Location:index.php');
+                }else {
+                    $errors[]='Такой пользователь не зарегистрирован или неверно введены данные';
+                }
             }
-        }
-        return false;
-    }
-}
-
-function getUsers() {
-    if (!file_exists(USERS_DATA_FILE)) {
-        return false;
-    } else {
-        $content = file_get_contents(USERS_DATA_FILE);
-        if (!$content) {
-            return false;
-        } else {
-            $users = json_decode($content, true);
-            return $users;
         }
     }
 }
