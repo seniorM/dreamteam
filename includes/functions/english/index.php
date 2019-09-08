@@ -99,15 +99,12 @@ function get_errors() {
     return $errors;
 }
 
-function get_index() {
+function is_auth(){
     $login = $_POST['login'];
-    if ($login !== $_SESSION['login']) {
-        header('Location:' . url('login'));
-    } else {
-        $posts = get_posts();
-        foreach ($posts as $id => $post){
-            echo $post['heading'];
-            echo $post['text'];
-        }
+    $session_login = $_SESSION['login'];
+    if($login === $session_login){
+        return true;
+    }else{
+        return false;
     }
 }
