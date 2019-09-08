@@ -78,11 +78,11 @@ function save_posts($posts)
 function add_post($heading, $text)
 {
     $posts = get_posts();
-    //$user = get_auth_user();
+    $user = get_auth_user();
     $posts[] = array(
         'heading' => $heading,
         'text' => $text,
-        'login' => '$user',
+        'login' => $user,
     );
     save_posts($posts);
 }
@@ -112,7 +112,7 @@ function get_all()
 }
 
 function is_auth(){
-    if(empty($_SESSION['name'])){
+    if(isset($_SESSION['login'])){
         $bool=false;
     }else{
         $bool=true;
