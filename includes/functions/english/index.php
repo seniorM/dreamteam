@@ -105,5 +105,9 @@ function get_index() {
         header('Location:' . url('login'));
     } else {
         $posts = get_posts();
+        foreach ($posts as $id => $post){
+            echo $post['heading'];
+            echo $post['text'];
+        }
     }
 }
