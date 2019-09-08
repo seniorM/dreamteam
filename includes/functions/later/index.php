@@ -11,7 +11,7 @@ function post_login() {
     if (!$login && !$pass) {
         $errors[] = 'Отсутствуют данные';
     } else {
-        $users = getUsers();
+        $users = get_users();
         if ($users) {
             foreach ($users as $user) {
                 if ($login === $user['login'] || $pass === $user['pass']){
