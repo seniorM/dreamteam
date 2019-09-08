@@ -4,8 +4,8 @@
         header('Location:' . url('login'));
     } else {
         $posts = get_posts();
-        foreach ($posts as $id => $post){
-            echo '<h2>'.$post['heading'].'</h2>';
+        foreach ($posts as $id => $post) {
+            echo '<h2>' . $post['heading'] . '</h2>';
             echo $post['text'];
         }
     }
