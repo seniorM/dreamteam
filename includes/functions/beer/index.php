@@ -38,7 +38,7 @@ function post_delete()
         delete_post($id);
         redirect('all');
     } else {
-        $errors = "not auth";
+        $errors[] = "not auth";
     }
     show("all.php");
 }
