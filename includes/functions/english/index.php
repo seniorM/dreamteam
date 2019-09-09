@@ -13,10 +13,10 @@ function post_registration() {
     if (check_login($user['login'])) {
         $errors[] = 'user already exists';
         set_errors($errors);
-        header('Location:' . url('registration'));
+	redirect(url('registration'));
     } else {
         add_user($user);
-        header('Location:' . url('login'));
+	redirect(url('login'));
     }
 }
 
@@ -39,7 +39,7 @@ function get_request_user() {
     }
     if (count($errors) != 0) {
         set_errors($errors);
-        header('Location:' . url('registration'));
+	redirect(url('registration'));
     }
     $user = array(
         'login' => $login,
