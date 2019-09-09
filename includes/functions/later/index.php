@@ -4,7 +4,7 @@
  * отображение формы авторизации
  */
 function get_login() {
-    if(is_auth()){
+    if (is_auth()) {
 	redirect(url('index'));
     }
     show('login.php');
@@ -56,7 +56,7 @@ function check_user($login, $pass) {
  * @return string
  */
 function get_auth_user() {
-    if(is_auth()){
+    if (is_auth()) {
 	return $_SESSION['login'];
     } else {
 	redirect(url('login'));

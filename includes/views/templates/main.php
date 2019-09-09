@@ -4,8 +4,9 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="description" content="description"/>
 	<meta name="author" content="author"/> 
-	<link rel="stylesheet" type="text/css" href="default.css" media="screen"/>
+	
 	<link href="css/default.css" rel="stylesheet" type="text/css"/>
+	<link href="css/main.css" rel="stylesheet" type="text/css"/>
 	<title>Dream team blog</title>
     </head>
     <body>
@@ -18,7 +19,9 @@
 		</div>
 		<div class="content">	
 		    <div id="menu">
+			<?php if (is_auth()): ?>
 			<a href="<?= url('index'); ?>">Все новости</a> <a href="<?= url('all'); ?>">Мои новости</a> <a href="index.php?action=exit">Выйти</a>
+			<?php endif; ?>
 		    </div>		    
 		    <div class="inner_copy"></div>
 		    <div class="item">
