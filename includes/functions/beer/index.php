@@ -118,3 +118,7 @@ function is_auth()
     return isset($_SESSION['login']);
 }
 
+function get_exit(){
+    session_destroy();
+    redirect(url("login"));
+}
