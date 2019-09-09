@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * отображение формы авторизации
+ */
 function get_login() {
     if(is_auth()){
 	redirect(url('index'));
@@ -48,11 +51,14 @@ function check_user($login, $pass) {
     return false;
 }
 
+/**
+ * возвращает логин авторизованного пользователя
+ * @return string
+ */
 function get_auth_user() {
-    $user_login = $_SESSION['login'];
-    if (empty($user_login)) {
-	$errors[] = 'No user';
+    if(is_auth()){
+	return $_SESSION['login'];
     } else {
-	return $user_login;
+	redirect(url('login'));
     }
 }
