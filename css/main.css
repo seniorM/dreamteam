@@ -1,12 +1,26 @@
-.item{
+#all{
+min-height: 280px;
+}
+form[name="add"]{
+    background-color: #eeeeee;
+    width: calc(100% - 12px);
+}
+textarea{
+    height: 80px;
+}
+div .all form{
+    border: none;
+    background-color: white;
+    position: relative;
+}
+.date{
+    text-align: right;
+}
+form[name="delete"]{
+    width: 100%;
 
 }
-.all{
-    width: 60%;
-    margin: 20px auto 0;
-    border: solid 1px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    background-color: #FFF8DC;
+input[value="delete"]{
+    position: absolute;
+    right: 0;
 }
