@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * опредиляет каким методом идет отправкка данных, и какой гет параметр
+ * запускает нужную функцию
+ */
 function router()
 {
     $action = 'index';
@@ -15,7 +19,10 @@ function router()
         exit('404');//todo
     }
 }
-
+/**
+ * проверяет существует ли авторизация, получает данные с формы
+ * добавляет ее и редирект
+ */
 function post_add()
 {
     $session_login = is_auth();
@@ -30,7 +37,10 @@ function post_add()
     set_errors($errors);
     redirect(url('all'));
 }
-
+/**
+ * проверяет существует ли авторизация, получает индекс с формы
+ * удаляет ее и редирект
+ */
 function post_delete()
 {
     $session_login = is_auth();
@@ -43,7 +53,9 @@ function post_delete()
     set_errors($errors);
     redirect(url('all'));
 }
-
+/**
+ * получает все посты, если введен логин возвращает массив с новостями этого логина
+ */
 function get_posts($login = false)
 {
     $posts = array();
@@ -65,14 +77,18 @@ function get_posts($login = false)
     }
     return $posts;
 }
-
+/**
+ * сохраняет в файл
+ */
 function save_posts($posts)
 {
     $content = json_encode($posts);
     $res = file_put_contents(POSTS_DATA_FILE, $content);
     return (bool)$res;
 }
-
+/**
+ * получает данные с формы и добавляет их в массив
+ */
 function add_post($heading, $text)
 {
     $posts = get_posts();
@@ -85,7 +101,10 @@ function add_post($heading, $text)
     );
     save_posts($posts);
 }
-
+/**
+ * по полученому индексу
+ * удаляет ее
+ */
 function delete_post($id)
 {
     $posts = get_posts();
@@ -93,17 +112,27 @@ function delete_post($id)
     save_posts($posts);
 }
 
+/**
+ * @param $page выводит страницу
+ * @param string $template
+ */
 function show($page, $template = DEFAULT_TEMPLATE)
 {
     include_once 'includes' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . $template;
 
 }
 
+/**
+ * @return mixed получает адрес корня сервера
+ */
 function get_root_folder()
 {
     return $_SERVER['DOCUMENT_ROOT'];
 }
 
+/**
+ * выводит все новости пользователя
+ */
 function get_all()
 {
     if (is_auth()) {
@@ -112,12 +141,16 @@ function get_all()
         redirect(url("login"));
     }
 }
-
+/**
+ * проверяет авторизац пользователя
+ */
 function is_auth()
 {
     return isset($_SESSION['login']);
 }
-
+/**
+ * прерывает сессию
+ */
 function get_exit(){
     session_destroy();
     redirect(url("login"));
