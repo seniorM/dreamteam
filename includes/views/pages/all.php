@@ -1,6 +1,6 @@
 <div id="all">
     <?php if (!(is_auth())) : ?>
-        <?php header('Location:' . url('login')); ?>
+        <?php redirect('login'); ?>
     <?php else: ?>
         <form action="index.php?action=add" method="post" name="add">
             <label>Heading: <input type="text" name="heading"></label>
