@@ -23,10 +23,10 @@
 		    </div>						
 		</div>
 		<div class="sidenav">
-		    <h2>Меню</h2>
+		   
 		    <ul>
-			<li><a href="/.php">Главная</a></li>
-			<li><a href="/views/pages/login.php">Войти</a></li>				
+			<li><a href="/.php">Главная</a>
+			<a href="/views/pages/login.php">Войти</a></li>				
 		    </ul>
 
 
@@ -34,7 +34,7 @@
 		<div class="clearer"></div>
 	    </div>
 	    <div class="footer">
-		<span class="left"><a href="#">Dream team blog</a></span>
+		
 
 		<center>Сайт создан компанией Dream Team &copy; <?php echo date('Y'); ?></center>
 		<div class="clearer"></div>
