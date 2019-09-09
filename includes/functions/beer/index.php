@@ -108,16 +108,12 @@ function get_all()
     if (is_auth()) {
         show("all.php");
     } else {
-        redirect(url('login'));
+        redirect(url("login"));
     }
 }
 
 function is_auth()
 {
-    if (isset($_SESSION['login'])) {
-        $bool = false;
-    } else {
-        $bool = true;
-    }
-    return $bool;
+    return isset($_SESSION['login']);
 }
+
