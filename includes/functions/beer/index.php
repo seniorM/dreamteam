@@ -51,7 +51,6 @@ function get_posts($login = false)
         $content = file_get_contents(POSTS_DATA_FILE);
         if ($content) {
             $novelty = json_decode($content, true);
-            $posts = $novelty;
             if ($login) {
                 $user = get_auth_user();
                 foreach ($novelty as $key => $post) {
@@ -60,7 +59,7 @@ function get_posts($login = false)
                     }
                 }
             } else {
-                $posts;
+                $posts = $novelty;
             }
         }
     }
