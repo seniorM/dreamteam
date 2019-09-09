@@ -5,7 +5,7 @@
         <input type="submit" value="add post">
     </form>
     <?php foreach (get_posts(get_auth_user()) as $id => $post): ?>
-        <div class="<?= $post['login']; ?> all post">
+        <div class="all post">
             <h2><?= $post['heading']; ?></h2>
             <div><?= $post['text'] ?></div>
             <div class="date"><?= $post['date'] ?></div>
