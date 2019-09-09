@@ -16,7 +16,10 @@
 			<h1>Dream team blog</h1>
 		    </div>
 		</div>
-		<div class="content">		    
+		<div class="content">	
+		    <div id="menu">
+			<a href="<?= url('index'); ?>">Все новости</a><a href="<?= url('all'); ?>">Мои новости</a><a href="#">Выйти</a>
+		    </div>		    
 		    <div class="inner_copy"></div>
 		    <div class="item">
 			 <?php include_once 'includes' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . $page; ?>
