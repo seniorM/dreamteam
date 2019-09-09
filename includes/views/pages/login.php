@@ -5,6 +5,5 @@
     <label>Пароль:
 	<input type="password" name="pass" required />
     </label>	    
-    <input type="submit" value="Войти"/>
+    <input type="submit" value="Войти"/><a href="index.php?action=registration">Регистрация</a>
 </form>
-<a href="/registration.php">Регистрация</a>
