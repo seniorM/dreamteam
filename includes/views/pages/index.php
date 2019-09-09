@@ -1,3 +1,4 @@
+<a href="<?= url('all') ?>">Мои записи</a>
 <div id="all_users_posts">
     <?php
     if (!(is_auth())) {
@@ -11,4 +12,3 @@
     }
     ?>
 </div>
-<a href="<?= url('all') ?>">Мои записи</a>

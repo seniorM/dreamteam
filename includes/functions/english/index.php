@@ -99,12 +99,4 @@ function get_errors() {
     return $errors;
 }
 
-function is_auth(){
-    $login = $_POST['login'];
-    $session_login = $_SESSION['login'];
-    if($login === $session_login){
-        return true;
-    }else{
-        return false;
-    }
-}
+
