@@ -49,7 +49,7 @@ function get_posts($login = false)
     } else {
         $content = file_get_contents(POSTS_DATA_FILE);
         if (!$content) {
-            return false;
+            return $posts = array();
         } else {
             $novelty = json_decode($content, true);
             $posts = array();
