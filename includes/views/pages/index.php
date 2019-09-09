@@ -9,4 +9,3 @@
         </div>
     <?php endforeach; ?>
 </div>
-А
