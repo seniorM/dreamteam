@@ -34,7 +34,7 @@
 		<div class="clearer"></div>
 	    </div>
 	    <div class="footer">
-		<span class="left"><a href="#">Dream team blog</a></span>
+		
 
 		<center>Сайт создан компанией Dream Team &copy; <?php echo date('Y'); ?></center>
 		<div class="clearer"></div>
