@@ -21,7 +21,7 @@ a:hover {
     color:#06F
 }
 body {
-    background:#EEE url(../img/bg.gif);
+    background:#EEE url(../img/84.png);
     color:#444;
     font:normal 62.5% "Lucida Sans Unicode",sans-serif;
     margin:0
@@ -75,12 +75,20 @@ cite {
     padding-left:28px}
 h1,h2,h3 {
     color:#367EA6;
-    padding-top:6px}
+    padding-top:6px
+}
 /* misc */
 .clearer {
-    clear:both
+    clear: both;
+    height:20px;
+    
         
+        
+}#menu{
+    height:30px;
+    
 }
+
 /* structure */
 .container {
     background:url(../img/bgcontainer.gif) repeat-y;
@@ -94,7 +102,8 @@ h1,h2,h3 {
 .title h1 {
     color:#FFF;
     font:normal 3em Verdana,sans-serif;
-    height:150px;line-height:150px;
+    height:150px;
+    line-height:150px;
     margin-bottom:8px;
     text-align:center}
 /* navigation */
@@ -131,10 +140,16 @@ form {padding:0 0 6px 8px}
     margin:0 auto;
     text-align:center;
     width:720px}
-.footer a {color:#36C;text-decoration:none}
-.footer a:hover {color:#06F;text-decoration:underline}
-.footer .left, .footer .right {
-    padding:6px 12px}
+.footer a {
+    color:#36C;text-decoration:none
+}
+.footer a:hover {
+    color:#06F;text-decoration:underline
+}
+.footer .left, .footer .right
+{
+    padding:6px 12px
+}
 .footer .right, .footer .right a {color:#AAA}
 .footer .right a:hover {color:#666}
 /* floats */
