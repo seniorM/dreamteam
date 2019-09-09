@@ -1,4 +1,3 @@
-<a href="<?= url('all') ?>">Мои записи</a>
 <div id="all_users_posts">
     <?php $posts = get_posts(); ?>
     <?php foreach ($posts as $id => $post) : ?>
