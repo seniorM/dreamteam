@@ -87,13 +87,15 @@ h1,h2,h3 {
 }#menu{
     height:30px;
     text-align: center;
+    font-size:1.3em;
+    
     
     
 }
 
 /* structure */
 .container {
-    background:#FFFFF0;
+    background:#FFF5EE;
     margin:0 auto;
     padding-bottom:6px;
     width:767px;
@@ -142,15 +144,17 @@ form {padding:0 0 6px 8px}
     background:#FFF;
     border:1px solid #EEE;
     color:#666;
-    font-size:1.1em;
+    font-size:1.3em;
     margin:0 auto;
     text-align:center;
-    width:720px}
+    width:730px}
 .footer a {
-    color:#36C;text-decoration:none
+    color:#36C;
+    text-decoration:none
 }
 .footer a:hover {
-    color:#06F;text-decoration:underline
+    color:#06F;
+    
 }
 .footer .left, .footer .right
 {
