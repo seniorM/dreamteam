@@ -1,36 +1,58 @@
 <?php
 
 function get_login() {
+    if(is_auth()){
+	redirect(url('index'));
+    }
     show('login.php');
 }
 
+/**
+ * обработка формы входа
+ */
 function post_login() {
-    global $errors;
+    $errors = array();
     $login = $_POST['login'];
     $pass = $_POST['pass'];
     if (!$login && !$pass) {
-        $errors[] = 'No data';
+	$errors[] = 'No data';
     } else {
-        $users = get_users();
-        if ($users) {
-            foreach ($users as $user) {
-                if ($login === $user['login'] || $pass === $user['pass']) {
-                    $_SESSION['login'] = $login;
-                    header('Location:index.php');
-                } else {
-                    $errors[] = 'User is not registered or data is entered incorrectly';
-                    header('Location:login.php');
-                }
-            }
-        }
+	if (check_user($login, $pass)) {
+	    $_SESSION['login'] = $login;
+	    redirect(url('index'));
+	} else {
+	    $errors[] = 'неверный логин или пароль';
+	}
     }
+    if (count($errors) > 0) {
+	set_errors($errors);
+	redirect(url('login'));
+    }
+}
+
+/**
+ * проверяет наличие пары логин пароль
+ * @param string $login
+ * @param string $pass
+ * @return boolean
+ */
+function check_user($login, $pass) {
+    $users = get_users();
+    foreach ($users as $user) {
+	if ($login === $user['login']) {
+	    if (password_verify($pass, $user['pass'])) {
+		return true;
+	    }
+	}
+    }
+    return false;
 }
 
 function get_auth_user() {
     $user_login = $_SESSION['login'];
     if (empty($user_login)) {
-        $errors[] = 'No user';
+	$errors[] = 'No user';
     } else {
-        return $user_login;
+	return $user_login;
     }
 }
