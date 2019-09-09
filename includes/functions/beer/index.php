@@ -81,6 +81,7 @@ function add_post($heading, $text)
         'heading' => $heading,
         'text' => $text,
         'login' => $user,
+        'date' => date("Y-m-d H:i:s"),
     );
     save_posts($posts);
 }
