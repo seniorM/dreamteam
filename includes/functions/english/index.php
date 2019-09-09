@@ -64,9 +64,11 @@ function get_users() {
     $users = array();
     if (file_exists(USERS_DATA_FILE)) {
 	$content = file_get_contents(USERS_DATA_FILE);
-	$users = json_decode($content, true);
-	return $users;
+	if ($content) {
+	    $users = json_decode($content, true);
+	}
     }
+    return $users;
 }
 
 function save_users($users) {
