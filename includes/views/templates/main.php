@@ -19,8 +19,9 @@
 		</div>
 		<div class="content">	
 		    <div id="menu">
-			
+			<?php if (is_auth()): ?>
 			<a href="<?= url('index'); ?>">Все новости</a> <a href="<?= url('all'); ?>">Мои новости</a> <a href="index.php?action=exit">Выйти</a>
+			<?php endif; ?>
 		    </div>		    
 		    <div class="inner_copy"></div>
 		    <div class="item">
