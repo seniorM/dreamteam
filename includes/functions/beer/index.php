@@ -23,11 +23,12 @@ function post_add()
         $heading = $_POST['heading'];
         $text = $_POST['text'];
         add_post($heading, $text);
-        redirect('all');
+        redirect(url('all'));
     } else {
-        redirect('all');
+        $errors[] = "not auth";
     }
-    show("all.php");
+    set_errors($errors);
+    redirect(url('all'));
 }
 
 function post_delete()
@@ -36,11 +37,11 @@ function post_delete()
     if ($session_login) {
         $id = $_POST['id'];
         delete_post($id);
-        redirect('all');
     } else {
         $errors[] = "not auth";
     }
-    show("all.php");
+    set_errors($errors);
+    redirect(url('all'));
 }
 
 function get_posts($login = false)
