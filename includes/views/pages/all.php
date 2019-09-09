@@ -7,7 +7,8 @@
     <?php foreach (get_posts(get_auth_user()) as $id => $post): ?>
         <div class="<?= $post['login']; ?>">
             <h2><?= $post['heading']; ?></h2>
-            <?= $post['text']; ?>
+            <div><?= $post['text']?></div>
+            <div><?= $post['date']?></div>
             <form action="index.php?action=delete" method="post" name="delete">
                 <input type="text" value="<?= $id; ?>" hidden name="id">
                 <input type="submit" value="delete">
