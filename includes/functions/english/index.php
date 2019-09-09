@@ -99,4 +99,9 @@ function get_errors() {
     return $errors;
 }
 
-
+function get_index(){
+    if(!is_auth()){
+	redirect(url('login'));
+    }
+    show('index.php');
+}

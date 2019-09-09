@@ -8,9 +8,3 @@ function redirect($url){
     header('Location:' . $url);
 }
 
-function get_index(){
-    if(!is_auth()){
-	redirect(url('login'));
-    }
-    show('index.php');
-}
