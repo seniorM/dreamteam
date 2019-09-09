@@ -23,10 +23,10 @@
 		    </div>						
 		</div>
 		<div class="sidenav">
-		    <h2>Меню</h2>
+		   
 		    <ul>
-			<li><a href="/.php">Главная</a></li>
-			<li><a href="/views/pages/login.php">Войти</a></li>				
+			<li><a href="/.php">Главная</a>
+			<a href="/views/pages/login.php">Войти</a></li>				
 		    </ul>
 
 
