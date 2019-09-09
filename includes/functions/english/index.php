@@ -58,7 +58,7 @@ function get_request_user() {
 
 /**
  * 
- * @param type $login
+ * @param string $login
  * @return boolean
  * проверяет пользователя по логину
  */
@@ -76,7 +76,7 @@ function check_login($login) {
 
 /**
  * 
- * @return type array
+ * @return array $users
  * получает массив пользователей
  */
 function get_users() {
@@ -92,8 +92,8 @@ function get_users() {
 
 /**
  * 
- * @param type $users
- * @return type
+ * @param array $users
+ * @return boolean
  * сохраняет логин и пароль в формате json
  */
 function save_users($users) {
@@ -107,7 +107,7 @@ function save_users($users) {
 
 /**
  * 
- * @param type $user
+ * @param string $user
  * добавляет пользователя
  */
 function add_user($user) {
@@ -118,7 +118,7 @@ function add_user($user) {
 
 /**
  * 
- * @param type $errors
+ * @param array $errors
  * записывает в сессию ошибки
  */
 function set_errors($errors) {
@@ -127,7 +127,7 @@ function set_errors($errors) {
 
 /**
  * 
- * @return type array
+ * @return array
  * забирает из сессии ошибки и удаляет
  */
 function get_errors() {
