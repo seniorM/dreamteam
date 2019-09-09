@@ -86,12 +86,14 @@ h1,h2,h3 {
         
 }#menu{
     height:30px;
+    text-align: center;
+    
     
 }
 
 /* structure */
 .container {
-    background:url(../img/bgcontainer.gif) repeat-y;
+    background:#FFFFF0;
     margin:0 auto;
     padding-bottom:6px;
     width:767px;
@@ -111,7 +113,11 @@ h1,h2,h3 {
 .navigation a {background-color:#4A91C3;color:#FFF;float:left;font:bold 1.2em "Trebuchet MS",sans-serif;padding:8px 0;width:19%;border-right:1px solid #FFF;text-align:center;text-decoration:none}
 .navigation a:hover {background-color:#000;color:#FFF}
 /* main */
-.main {clear:both;padding:8px 18px}
+.main {
+    clear:both;
+    padding:8px 18px;
+    margin-top: 40px;
+}
 /* main left */
 .sidenav h1,.sidenav ul {padding-left:12px}
 .sidenav {background:#EEE;border:1px solid #E5E5E5;float:left;width:200px}
