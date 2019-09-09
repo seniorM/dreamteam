@@ -1,26 +1,32 @@
-#all{
-min-height: 280px;
+#all {
+    min-height: 280px;
 }
-form[name="add"]{
+
+form[name="add"] {
     background-color: #eeeeee;
     width: calc(100% - 12px);
 }
-textarea{
+
+textarea {
     height: 80px;
 }
-div .all form{
+
+div .all form {
     border: none;
     background-color: white;
     position: relative;
 }
-.date{
+
+.date {
     text-align: right;
 }
-form[name="delete"]{
+
+form[name="delete"] {
     width: 100%;
 
 }
-input[value="delete"]{
+
+input[value="delete"] {
     position: absolute;
     right: 0;
 }
