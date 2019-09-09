@@ -1,0 +1,12 @@
+.item{
+
+}
+.all{
+    width: 60%;
+    margin: 20px auto 0;
+    border: solid 1px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF8DC;
+}
