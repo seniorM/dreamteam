@@ -18,15 +18,15 @@ function router()
 
 function post_add()
 {
-    //$session_login = is_auth();
-    //if ($session_login) {
-    $heading = $_POST['heading'];
-    $text = $_POST['text'];
-    add_post($heading, $text);
-    header('Location:index.php?action=all');
-    //} else {
-    header('Location:index.php?action=all');
-    //}
+    $session_login = is_auth();
+    if ($session_login) {
+        $heading = $_POST['heading'];
+        $text = $_POST['text'];
+        add_post($heading, $text);
+        redirect('all');
+    } else {
+        redirect('all');
+    }
     show("all.php");
 }
 
@@ -36,23 +36,21 @@ function post_delete()
     if ($session_login) {
         $id = $_POST['id'];
         delete_post($id);
-    } else{
-        $error = "not auth";
+        redirect('all');
+    } else {
+        $errors[] = "not auth";
     }
     show("all.php");
 }
 
 function get_posts($login = false)
 {
-    if (!file_exists(POSTS_DATA_FILE)) {
-        return false;
-    } else {
+    $posts = array();
+    if (file_exists(POSTS_DATA_FILE)) {
         $content = file_get_contents(POSTS_DATA_FILE);
-        if (!$content) {
-            return $posts = array();
-        } else {
+        if ($content) {
             $novelty = json_decode($content, true);
-            $posts = array();
+            $posts = $novelty;
             if ($login) {
                 $user = get_auth_user();
                 foreach ($novelty as $key => $post) {
@@ -61,11 +59,11 @@ function get_posts($login = false)
                     }
                 }
             } else {
-                $posts = $novelty;
+                $posts;
             }
-            return $posts;
         }
     }
+    return $posts;
 }
 
 function save_posts($posts)
@@ -107,15 +105,15 @@ function get_root_folder()
 
 function get_all()
 {
-
-    show("all.php");
-}
-
-function is_auth(){
-    if(isset($_SESSION['login'])){
-        $bool=false;
-    }else{
-        $bool=true;
+    if (is_auth()) {
+        show("all.php");
+    } else {
+        redirect(url("login"));
     }
-    return $bool;
 }
+
+function is_auth()
+{
+    return isset($_SESSION['login']);
+}
+
