@@ -22,15 +22,7 @@
 			 <?php include_once 'includes' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . $page; ?>
 		    </div>						
 		</div>
-		<div class="sidenav">
-		   
-		    <ul>
-			<li><a href="/.php">Главная</a>
-			<a href="/views/pages/login.php">Войти</a></li>				
-		    </ul>
-
-
-		</div>
+		
 		<div class="clearer"></div>
 	    </div>
 	    <div class="footer">
