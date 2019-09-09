@@ -7,6 +7,10 @@ function get_registration() {
     show('registration.php');
 }
 
+/**
+ * получает данные регистрации, проверяет и,
+ * если нет ошибок, перенаправляет на авторизацию
+ */
 function post_registration() {
     $errors = array();
     $user = get_request_user();
@@ -20,6 +24,10 @@ function post_registration() {
     }
 }
 
+/**
+ * получает логин и пароль, проверяет и,
+ * если нет ошибок, возвращает пользователя
+ */
 function get_request_user() {
     global $errors;
     $login = $_POST['login'];
@@ -48,6 +56,12 @@ function get_request_user() {
     return $user;
 }
 
+/**
+ * 
+ * @param type $login
+ * @return boolean
+ * проверяет пользователя по логину
+ */
 function check_login($login) {
     $users = get_users();
     if (!empty($users)) {
@@ -60,6 +74,11 @@ function check_login($login) {
     return false;
 }
 
+/**
+ * 
+ * @return type array
+ * получает массив пользователей
+ */
 function get_users() {
     $users = array();
     if (file_exists(USERS_DATA_FILE)) {
@@ -71,6 +90,12 @@ function get_users() {
     return $users;
 }
 
+/**
+ * 
+ * @param type $users
+ * @return type
+ * сохраняет логин и пароль в формате json
+ */
 function save_users($users) {
     $content = json_encode($users);
     if (!file_exists('data')) {
@@ -80,22 +105,40 @@ function save_users($users) {
     return (bool) $res;
 }
 
+/**
+ * 
+ * @param type $user
+ * добавляет пользователя
+ */
 function add_user($user) {
     $users = get_users();
     $users[] = $user;
     save_users($users);
 }
 
+/**
+ * 
+ * @param type $errors
+ * записывает в сессию ошибки
+ */
 function set_errors($errors) {
     $_SESSION['errors'] = $errors;
 }
 
+/**
+ * 
+ * @return type array
+ * забирает из сессии ошибки и удаляет
+ */
 function get_errors() {
     $errors = $_SESSION['errors'];
     unset($_SESSION['errors']);
     return $errors;
 }
 
+/**
+ * проверяет авторизацию и отображает все посты
+ */
 function get_index() {
     if (!is_auth()) {
 	redirect(url('login'));
