@@ -19,16 +19,15 @@
 		</div>
 		<div class="content">
                    <nav class="top-menu">
-  <ul class="menu-main">
-    <?php if (is_auth()): ?>
-    <li><a href="<?= url('index'); ?>">Все новости</a></li>
-    <li><a href="<?= url('all'); ?>">Мои новости</a></li>
-    <li><a href="index.php?action=exit">Выйти</a></li>
-    <?php endif; ?>
-  </ul>
-</nav>
-		   		    
-		    <div class="inner_copy"></div>
+                        <ul class="menu-main">
+                        <?php if (is_auth()): ?>
+                        <li><a href="<?= url('index'); ?>">Все новости</a></li>
+                        <li><a href="<?= url('all'); ?>">Мои новости</a></li>
+                        <li><a href="index.php?action=exit">Выйти</a></li>
+                        <?php endif; ?>
+                        </ul>
+                    </nav>		   		    
+		    
 		    <div class="item">
 			 <?php include_once 'includes' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . $page; ?>
 		    </div>						
