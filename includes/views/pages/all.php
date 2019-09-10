@@ -1,7 +1,10 @@
 <div id="all">
     <form action="index.php?action=add" method="post" name="add">
         <label>Heading: <input type="text" name="heading"></label>
-        <label>Text<textarea name="content text" id="editor"></textarea></label>
+        <label>Text<textarea name="text" id="editor"></textarea></label>
+        <script type="text/javascript">
+CKEDITOR.replace( 'editor' );
+</script>
         <input type="submit" value="add post">
     </form>
     <?php foreach (get_posts(get_auth_user()) as $id => $post): ?>

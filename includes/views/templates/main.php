@@ -6,6 +6,7 @@
 	<meta name="author" content="author"/> 	
 	<link href="css/default.css" rel="stylesheet" type="text/css"/>
 	<link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 	<title>Dream team blog</title>
     </head>
     <body>
