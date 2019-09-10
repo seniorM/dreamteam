@@ -23,10 +23,13 @@ div .all form {
 
 form[name="delete"] {
     width: 100%;
+    padding-bottom: 30px;
+    
 
 }
 
 input[value="delete"] {
     position: absolute;
     right: 0;
+    
 }
