@@ -17,12 +17,17 @@
 			<h1>Dream team blog</h1>
 		    </div>
 		</div>
-		<div class="content">	
-		    <div id="menu">
-			<?php if (is_auth()): ?>
-			<a href="<?= url('index'); ?>">Все новости</a> <a href="<?= url('all'); ?>">Мои новости</a> <a href="index.php?action=exit">Выйти</a>
-			<?php endif; ?>
-		    </div>		    
+		<div class="content">
+                   <nav class="top-menu">
+  <ul class="menu-main">
+    <?php if (is_auth()): ?>
+    <li><a href="<?= url('index'); ?>">Все новости</a></li>
+    <li><a href="<?= url('all'); ?>">Мои новости</a></li>
+    <li><a href="index.php?action=exit">Выйти</a></li>
+    <?php endif; ?>
+  </ul>
+</nav>
+		   		    
 		    <div class="inner_copy"></div>
 		    <div class="item">
 			 <?php include_once 'includes' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . $page; ?>
@@ -32,8 +37,8 @@
 	    </div>
 	    <!--Start footer-->
 	    <div class="footer">		
-		<center>Сайт создан компанией Dream Team &copy; <?php echo date('Y'); ?></center>
-		<div class="clearer"></div>
+		Сайт создан компанией Dream Team &copy; <?php echo date('Y'); ?>
+		
 	    <!--Finish footer-->
 	    </div>
 	</div>
