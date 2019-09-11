@@ -17,7 +17,7 @@ body {
 form
 {
     width: 60%;
-    margin: 20px auto 0;
+    margin: 20px auto 20px;
     border: solid 1px;   
     padding: 10px;
     display: flex;
@@ -107,15 +107,17 @@ h1,h2,h3 {
 .content {
     float:right;
     width:730px}
-.content .item {padding:6px 12px;border:1px solid #EEE;background:#FFF;margin-bottom:8px}
+.content .item {
+    padding:12px 12px;
+    border:1px solid #EEE;
+    background:#FFF;
+    
+}
 .content .descr {color:#333;margin-bottom:6px}
 .content li {
     list-style:url(../img/li.gif);
     margin-left:18px}
-/* search form */
-form {
-    padding:0 0 6px 8px;
-}
+
 .button {
     background:url(../img/search.gif) no-repeat left bottom;
     border:none;
@@ -128,7 +130,7 @@ form {
     border:1px solid #EEE;
     color:#666;
     font-size:1.3em;
-    margin:0 auto;
+    margin: auto;
     text-align:center;
     width:730px;
     height: 40px;
