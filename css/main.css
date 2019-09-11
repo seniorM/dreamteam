@@ -23,7 +23,10 @@ div .all form {
 
 form[name="delete"] {
     width: 100%;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
+    margin-left: -20px;
+    
+    
     
 
 }
